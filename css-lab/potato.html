@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Potato</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
+
+      * { box-sizing: border-box; }
+
+      :root {
+        --bg: #c9b7a0;
+        --dark: #2f2d2a;
+        --text: rgba(255, 255, 255, 0.9);
+        --muted: rgba(255, 255, 255, 0.75);
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font: 14px "Lato", sans-serif;
+        color: var(--dark);
+        background: var(--bg);
+        text-align: center;
+      }
+
+      a { text-decoration: none; }
+
+      .page {
+        width: min(1280px, 100%);
+        margin: 0 auto;
+        min-height: 100vh;
+      }
+
+      header {
+        min-height: 760px;
+        color: var(--text);
+        background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.08));
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 34px 0;
+      }
+
+      .brand {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      nav a {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      nav a.buy {
+        padding: 10px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 24px;
+        transition: background-color .3s, border-color .3s;
+      }
+
+      nav a.buy:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 1);
+      }
+
+      .hero {
+        padding-top: 110px;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(2.1rem, 3vw, 3.2rem);
+        font-weight: 300;
+        line-height: 1.2;
+        color: rgba(255, 255, 255, 0.9);
+        letter-spacing: 0.02em;
+      }
+
+      .hero p {
+        margin: 18px 0 0;
+        font-size: 14px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .hero-img {
+        display: block;
+        width: min(420px, 70vw);
+        margin: 24px auto 0;
+        filter: drop-shadow(0 14px 18px rgba(87, 74, 54, 0.2));
+      }
+
+      .shapes {
+        padding: 150px 0 160px;
+        background: url("https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=1200&q=80") center / cover no-repeat, #ffffff;
+      }
+
+      .shapes h2, .order h2 {
+        margin: 0;
+        font-size: 34px;
+        font-weight: 300;
+      }
+
+      .shapes p {
+        width: 460px;
+        max-width: calc(100% - 40px);
+        margin: 10px auto 30px;
+        font-size: 14px;
+        font-weight: 300;
+      }
+
+      .order { padding: 40px 0 50px; background: #fafafa; }
+      .plans {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .plan {
+        width: 273px;
+        padding: 0 10px 40px;
+        border-right: 1px solid #555555;
+        font-weight: 300;
+      }
+
+      .plan:first-child { border-left: none; }
+      .plan:last-child { border-right: 1px solid #555555; }
+      .plan h3 { margin: 0 0 24px; font-size: 25px; font-weight: 300; }
+      .plan ul { margin: 0 0 18px; padding: 0; list-style: none; }
+      .plan li { margin-bottom: 21px; font-size: 14px; }
+
+      .order-btn {
+        display: inline-block;
+        padding: 6px 20px;
+        font: 400 17px Arial, sans-serif;
+        text-transform: uppercase;
+        color: #9acd32;
+        border: 2px solid #9acd32;
+        border-radius: 20px;
+        transition: background-color .3s, color .3s;
+      }
+
+      .order-btn:hover { background: #9acd32; color: #ffffff; }
+      .plan small { display: block; margin: 8px 0 40px; font-size: 11px; font-weight: 400; }
+      .plan img { max-width: 100%; }
+
+      footer {
+        padding: 18px 0;
+        font-weight: 700;
+        color: #ffffff;
+        background: #85705f;
+      }
+
+      @media (max-width: 640px) {
+        .top {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        nav {
+          gap: 8px;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+        }
+
+        nav a {
+          letter-spacing: 0.06em;
+        }
+
+        .hero {
+          padding-top: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="top">
+          <h1 class="brand">potato<span>™</span></h1>
+          <nav aria-label="Main navigation">
+            <a href="#">About</a>
+            <a href="#">Features</a>
+            <a href="#" class="buy">Buy it now</a>
+          </nav>
+        </div>
+
+        <div class="hero">
+          <h1>"Sweet Nutritions And Delicious"</h1>
+          <p>The key to happiness is hidden in the Potato™</p>
+          <img
+            class="hero-img"
+            src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=900&q=80"
+            alt="Fresh potatoes"
+          />
+        </div>
+      </header>
+    </div>
+  </body>
+</html>
